@@ -1,0 +1,385 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-900 bg-white;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white font-semibold rounded-lg 
+           hover:bg-primary-dark transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white font-semibold rounded-lg 
+           hover:bg-secondary-dark transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply border-secondary-300 bg-white text-secondary-700 hover:bg-secondary-50 focus:ring-secondary;
+  }
+
+  .input {
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 border border-gray-100;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary-100 text-secondary-800 dark:bg-secondary-900 dark:text-secondary-200;
+  }
+
+  .feature-card {
+    @apply p-6 rounded-xl bg-white shadow-lg hover:shadow-xl 
+           transition-shadow duration-300 border border-gray-100;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300 
+           focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Responsive Typography */
+@layer base {
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl font-bold;
+  }
+  h2 {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold;
+  }
+  h3 {
+    @apply text-2xl sm:text-3xl font-semibold;
+  }
+  h4 {
+    @apply text-xl sm:text-2xl font-semibold;
+  }
+  p {
+    @apply text-base sm:text-lg;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Loading Spinner */
+.spinner {
+  @apply animate-spin rounded-full border-4 border-gray-200 dark:border-gray-700;
+  border-top-color: theme('colors.primary.DEFAULT');
+}
+
+/* Focus Styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary;
+}
+
+/* Grid Layouts */
+.grid-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+/* Aspect Ratios */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+/* Glass Effect */
+.glass {
+  @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg;
+}
+
+/* Gradient Text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+}
+
+/* Card Hover Effects */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+/* Responsive Images */
+.img-cover {
+  @apply object-cover w-full h-full;
+}
+
+.img-contain {
+  @apply object-contain w-full h-full;
+}
+
+/* Responsive Container */
+.container-responsive {
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Responsive Grid */
+.grid-responsive {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8;
+}
+
+/* Responsive Flex */
+.flex-responsive {
+  @apply flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8;
+}
+
+/* Responsive Spacing */
+.space-responsive {
+  @apply space-y-4 sm:space-y-6 lg:space-y-8;
+}
+
+/* Responsive Text */
+.text-responsive {
+  @apply text-sm sm:text-base lg:text-lg;
+}
+
+/* Responsive Padding */
+.p-responsive {
+  @apply p-4 sm:p-6 lg:p-8;
+}
+
+/* Responsive Margin */
+.m-responsive {
+  @apply m-4 sm:m-6 lg:m-8;
+}
+
+/* Responsive Gap */
+.gap-responsive {
+  @apply gap-4 sm:gap-6 lg:gap-8;
+}
+
+/* Responsive Border Radius */
+.rounded-responsive {
+  @apply rounded-lg sm:rounded-xl lg:rounded-2xl;
+}
+
+/* Responsive Shadow */
+.shadow-responsive {
+  @apply shadow-sm sm:shadow-md lg:shadow-lg;
+}
+
+/* Responsive Font Size */
+.text-responsive {
+  @apply text-sm sm:text-base lg:text-lg;
+}
+
+/* Responsive Line Height */
+.leading-responsive {
+  @apply leading-normal sm:leading-relaxed lg:leading-loose;
+}
+
+/* Responsive Letter Spacing */
+.tracking-responsive {
+  @apply tracking-tight sm:tracking-normal lg:tracking-wide;
+}
+
+/* Responsive Font Weight */
+.font-responsive {
+  @apply font-normal sm:font-medium lg:font-semibold;
+}
+
+/* Responsive Opacity */
+.opacity-responsive {
+  @apply opacity-75 sm:opacity-80 lg:opacity-90;
+}
+
+/* Responsive Z-Index */
+.z-responsive {
+  @apply z-0 sm:z-10 lg:z-20;
+}
+
+/* Responsive Transform */
+.transform-responsive {
+  @apply transform scale-95 sm:scale-100 lg:scale-105;
+}
+
+/* Responsive Transition */
+.transition-responsive {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Responsive Animation */
+.animate-responsive {
+  @apply animate-pulse sm:animate-bounce lg:animate-spin;
+}
+
+/* Responsive Filter */
+.filter-responsive {
+  @apply filter blur-sm sm:blur-none lg:blur-md;
+}
+
+/* Responsive Backdrop */
+.backdrop-responsive {
+  @apply backdrop-blur-sm sm:backdrop-blur-md lg:backdrop-blur-lg;
+}
+
+/* Responsive Mix Blend */
+.mix-blend-responsive {
+  @apply mix-blend-normal sm:mix-blend-multiply lg:mix-blend-overlay;
+}
+
+/* Responsive Background */
+.bg-responsive {
+  @apply bg-white dark:bg-gray-900;
+}
+
+/* Responsive Border */
+.border-responsive {
+  @apply border border-gray-200 dark:border-gray-700;
+}
+
+/* Responsive Outline */
+.outline-responsive {
+  @apply outline outline-1 outline-gray-200 dark:outline-gray-700;
+}
+
+/* Responsive Ring */
+.ring-responsive {
+  @apply ring-1 ring-gray-200 dark:ring-gray-700;
+}
+
+/* Responsive Box Shadow */
+.shadow-responsive {
+  @apply shadow-sm sm:shadow-md lg:shadow-lg;
+}
+
+/* Responsive Text Shadow */
+.text-shadow-responsive {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.08);
+}
+@media (min-width: 640px) {
+  .text-shadow-responsive {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.10);
+  }
+}
+@media (min-width: 1024px) {
+  .text-shadow-responsive {
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.12);
+  }
+} 
